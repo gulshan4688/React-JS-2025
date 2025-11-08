@@ -14,3 +14,6 @@ import {age, arr} from './app.js'   // export named are imported this way  in { 
 console.log(user);
 console.log(arr);
 console.log(age);
+
+
+

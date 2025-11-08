@@ -7,4 +7,4 @@ const user = "sarthak"
 export const age = 23;
 export const arr = ["who", "am", "I"];
 
-export default user;
+export default user;    // jo yaha default export ho gaya wo kahi bhi kisi naam se import ho skta hai 
