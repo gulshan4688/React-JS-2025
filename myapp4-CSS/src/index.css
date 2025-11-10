@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #322f2f;
+    color: aliceblue;
+
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+
+}
