@@ -51,3 +51,74 @@ Think of it like:
 
 # useMemo and useCallbacks - 
   used to optimize the website and avoid unncessory re-rendering like , the components will re-render at only when new data is coming or something related to that is actually changing 
+
+
+        ! ----------------USE STATE---------------!
+  
+Here 
+  const [num, setNum] = useState(20);
+      this    this          here is the bracket in which we initialse the value 
+      num     value
+      is      write 
+      read    only 
+      only    we can 
+      means   do 
+      we can  changes
+      only    to this 
+      print 
+      it 
+  
+  # this is how we change the values 
+                                    
+                  const [num, setNum] = useState(20);  // define the num and initialse it 
+                  const changeNum=()=>{                 // create a function that will be called in the tags on chnage or click 
+                    setNum(num * 10);                   // change whatever value to , u want 
+                  }
+  
+  # how to call two eventHandlers in one tag 
+                    const [num, setNum] = useState(20);
+                    const [userName, setUserName] = useState('mani');
+
+                    <const changeNum=()=>{
+                      setNum(num * 10);
+                    }
+
+                    const changeName=()=>{
+                      setUserName(userName + ' Kumar');
+                    }
+
+                    return (
+                      <div>
+                        <h1>Value of a is {num}</h1>
+                        <h1>User Name is {userName}</h1>
+
+#                        <button onClick={()=>{   // ek hi onClick method me sare eventHandlers daal do 
+#                         changeName();
+#                         changeNum();
+#                       }} >Click</button>
+#                     </div>
+                    )
+
+
+!=-------------- Use of UseState in Counter App--------------------!
+
+import React, { useState } from 'react'
+
+const Counter = () => {
+    const [num, setNum] = useState(0);
+#    const increase =()=>{
+        setNum(num+1);
+    }
+#    const decrease =()=>{
+        setNum(num-1);
+    }
+  return (
+    <div>
+      <h1>Value : {num}</h1>
+      <button className='btn' onClick={increase} >Increase</button>
+      <button className='btn' onClick={decrease} >Decrease</button>
+    </div>
+  )
+}
+
+export default Counter;

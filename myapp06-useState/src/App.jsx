@@ -1,34 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
+import Counter from './Counter';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  let a = 20;
+  const increase=()=>{
+    a = a*10;
+    console.log(a);
+    return a;
+  }
+  
+  const [num, setNum] = useState(20);
+  const [userName, setUserName] = useState('mani')
+  const changeNum=()=>{
+    setNum(num * 10);
+  }
+  const changeName=()=>{
+    setUserName(userName + 'Kumar');
+  }
+  
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Value of a is {num}</h1>
+      <h1>User Name is {userName}</h1>
+      <button onClick={()=>{
+        changeName();
+        changeNum();
+      }} >Click</button>
+      <Counter/>
+    </div>
   )
 }
 
