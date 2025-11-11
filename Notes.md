@@ -122,3 +122,56 @@ const Counter = () => {
 }
 
 export default Counter;
+
+
+!--------Facts----------!
+
+# this useState runs asynchrounulsy so hence its values are updated a bit late after printing on the console as if we do this 
+      const [num, setNum] = useState(10);
+      const changeNum=()=>{
+#         console.log(num);
+#         setNum(20);
+#         console.log(num);
+                        -- so in these three line its should print 10 and then 20 but no its print 10 and 10 as its asyncrhous so console log happens early and this gets updated on the UI a bit late 
+      }
+
+
+!---------------- Working with Objects and useState--------------------!
+
+#   const [num, setNum] = useState({user:'sarthak', age : 20});
+ const btnClicked = ()=>{
+  const nextNum = {...num};  // destructring 
+
+    // since we have destructured the object now we can change them 
+
+#   nextNum.user = 'mani';
+#   nextNum.age = 23;
+    
+    setNum(nextNum);
+  }
+
+  return (
+    <div>
+      <h1>Name and Value are : {num.user} and {num.age} </h1>
+      <button onClick={btnClicked} >Click</button>
+    </div>
+  )
+
+!---------------- Working with Arrays and useState--------------------!
+
+# const [num2, setNum2] = useState(['mani',24]);
+  const btnClickedArr = ()=>{
+    const nextNum = [...num2];  // destructring 
+    console.log(nextNum);
+    // since we have destructured the object now we can change them 
+#   nextNum[0] = 'mani kumar';
+#   nextNum[1] = 22;
+    setNum2(nextNum);
+  }
+
+  return (
+    <div>
+      <h1>Name and Value are : {num2[0]} and {num2[1]} </h1>
+      <button onClick={btnClickedArr} >Click</button>
+    </div>
+  )
