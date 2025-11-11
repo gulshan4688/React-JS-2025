@@ -150,13 +150,14 @@ export default Counter;
     setNum(nextNum);
   }
 
+
   return (
     <div>
       <h1>Name and Value are : {num.user} and {num.age} </h1>
       <button onClick={btnClicked} >Click</button>
     </div>
   )
-
+this line is for increasing the gihub streak colour 
 !---------------- Working with Arrays and useState--------------------!
 
 # const [num2, setNum2] = useState(['mani',24]);
