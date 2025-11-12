@@ -132,7 +132,7 @@ export default Counter;
 #         console.log(num);
 #         setNum(20);
 #         console.log(num);
-                        -- so in these three line its should print 10 and then 20 but no its print 10 and 10 as its asyncrhous so console log happens early and this gets updated on the UI a bit late 
+ so in these three line its should print 10 and then 20 but no its print 10 and 10 as its asyncrhous so console log happens early and this gets updated on the UI a bit late 
       }
 
 
