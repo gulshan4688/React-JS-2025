@@ -19,8 +19,8 @@ const App = () => {
                placeholder='enter your name'
                value={title}
                onChange={(e)=>{
-                setTitle(e.target.value);
-                // setTitle('');
+               setTitle(e.target.value);
+               console.log(e.target.value);
                }} />
         <button>Submit</button>
       </form>
