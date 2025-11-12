@@ -16,14 +16,15 @@ const App = () => {
     const nextNum = [...num2];  // destructring 
     console.log(nextNum);
     // since we have destructured the object now we can change them 
-    nextNum[0] = 'mani kumar';
-    nextNum[1] = 22;
-    setNum2(nextNum);
+    // nextNum[0] = 'mani kumar';
+    // nextNum[1] = 29;
+    // setNum2(nextNum);
+    setNum2(newVal => ([...newVal,'kumar']));
   }
 
   return (
     <div>
-      <h1>Name and Value are : {num2[0]} and {num2[1]} </h1>
+      <h1>Name and Value are : {num2[0]} and {num2[1]} and {num2[2]} </h1>
       <button onClick={btnClickedArr} >Click</button>
     </div>
   )
