@@ -277,3 +277,106 @@ const [num2, setNum2] = useState(["A", "B", "C"]);
 setNum2(prev => prev.map((v, i) => i === 1 ? "Changed" : v));
 
 // result: ["A", "Changed", "C"]
+
+!----------------------- Notes app ---------------------!
+
+import React, { useState } from 'react'
+import Notes from './components/Notes';
+
+const App = () => {
+
+#  const [title, setTitle] = useState('');
+#  const [description, setDescription] = useState('');
+#  const [notes, setNotes] = useState([]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+#   ---------- you need varible to store title and description both and an array to print the notes below of a type object 
+
+    let newArr = [...notes];          
+    newArr.push({ title, description });
+
+    setNotes(newArr);
+    setTitle('');
+    setDescription('');
+    
+  }
+  return (
+    <div className='min-h-screen bg-gray-800 text-gray-300 ' >
+      <form className='flex p-10 flex-col gap-4'
+        onSubmit={submitHandler}>
+        <input
+          type="text"
+          placeholder='enter Heading'
+          className='px-5 py-2 border-2 rounded outline-none '
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder='enter Details'
+          className='px-5 py-2 border-2 h-40 rounded outline-none '
+          value={description}
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
+        <button
+          className='bg-gray-400 px-5 py-2 text-black outline-none' >Add Note</button>
+      </form>
+
+      {
+        notes.length == 0 ? <h1 className='font-bold text-3xl pl-7 mt-9 ' >No Recent Notes </h1> : <Notes notes={notes}
+          setNotes={setNotes} />
+      }
+
+    </div>
+  )
+}
+
+export default App
+
+
+!-----------------------Delete-----------------------!
+
+# This is how you u delete something after creating it 
+
+import React from 'react'
+
+const Notes = ({ notes , setNotes}) => {
+
+#    const deleteNote = (idx) => {    // here it fecthes the indexes 
+#        let copyTask = [...notes];
+#        copyTask.splice(idx,1);      // with the help of splice method it remove that 1 element provided idx
+#        setNotes(copyTask);
+#    }
+
+    return (
+        <>
+            <div className=' p-10'>
+                <h1 className='text-4xl font-bold'>Recent Notes</h1>
+                <div className='flex flex-wrap gap-5 mt-5 h-full overflow-auto'>
+                    {notes.map(function (elem, idx) {
+                        return (
+                            <div className="h-52 w-40 rounded-2xl bg-white text-black p-3 flex 
+#                            justify-between flex-col" key={idx} >   // define the idx 
+                                <h2 className='font-bold size-3 mb-5 text-2xl  ' >{elem.title}</h2>
+                                <h4 className='text-gray-600 leading-tight font-semibold' >{elem.description}</h4>
+#                                <button className='w-full p-1 rounded bg-red-400 text-xs font-semibold
+#                               cursor-pointer active:scale-98'
+#                                    onClick={()=>{
+#                                        deleteNote(idx)  // pass the idx
+#                                    }} >Delete 
+#                               </button>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default Notes
