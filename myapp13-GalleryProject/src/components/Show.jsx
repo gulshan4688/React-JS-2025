@@ -1,6 +1,5 @@
 
 const Show = ({ arr }) => {
-    console.log(arr);
     return (
         <div className='flex flex-wrap gap-y-4 ml-7 mt-3 w-900px ' >
             {
