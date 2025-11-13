@@ -10,15 +10,17 @@ const App2 = () => {
     function decrease() {
         console.log("Decreasing");
     }
-    useEffect(()=>{
+    useEffect(() => {
         increase();
-        // decrease();
-    },[num]);
+    }, [num]);
+    useEffect(() => {
+        decrease();
+    }, [num]);
 
     return (
         <div className='parent' >
             <h1>{num}</h1>
-            <button  onClick={() => {
+            <button onClick={() => {
                 setNum(num + 1);
             }}  >INCREASE</button>
             <button onClick={() => {
