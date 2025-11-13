@@ -339,7 +339,7 @@ const App = () => {
 export default App
 
 
-!-----------------------Delete-----------------------!
+## !-----------------------Delete-----------------------!
 
 # This is how you u delete something after creating it 
 
@@ -383,7 +383,7 @@ export default Notes
 
 
 
-!-------------------- LOCAL STORAGE ----------------------!
+## !-------------------- LOCAL STORAGE ----------------------!
 
 
 import React from 'react'
@@ -422,7 +422,7 @@ export default App
 
 
 
-!------------------------API CALLS --------------------!
+## !------------------------API CALLS --------------------!
 
 
 
@@ -463,7 +463,7 @@ const App = () => {
 
 export default App
 
-!_-------------- CALLED API AND DISPLAYE ON WEB ------------------!
+## !_-------------- CALLED API AND DISPLAYE ON WEB ------------------!
 
 
 import React from 'react'
@@ -502,6 +502,49 @@ const App = () => {
       <button onClick={getDataAsync} >Make a AYSNC call</button>
       {/* <button onClick={usingAxios}  >Using Axios</button> */}
       <Temp response={responseArr} />
+    </div>
+  )
+}
+
+export default App
+
+
+
+
+## !----------------- USE EFFECT -------------------!
+
+import React, { useEffect, useState } from 'react'
+
+const App = () => {
+
+  const [num, setNum] = useState(2);
+  const [num2, setNum2] = useState(2);
+
+# Use effect is used when we need a render that only runs when something is actually chaning so it is depenedent on someone 
+# and that is called dependency array 
+  useEffect(() => {
+    console.log("use effect is running ");
+  })     -- so here its not depending on anything so it runs everytime the UI loads or does any minor changes 
+
+  useEffect(() => {
+    console.log("use effect is running ");
+  }, [])   -- on another hand this useEffect never runs becasue it is depending upon array but it doesnt know which array so it never runs 
+
+  useEffect(() => {
+    console.log("use effect is running ");
+  }, [num2])  -- and this is most usefull form because whenver the num2 variable will change it will change automaically and this 
+  is called dependency array 
+
+  return (
+    <div>
+      <h1>num: {num}</h1>
+      <button onClick={() => {
+          setNum(num + 1);
+      }} >click</button>
+      <h1>num2 : {num2}</h1>
+      <button onClick={() => {
+          setNum2(num2 + 1);
+      }}>click_2</button>
     </div>
   )
 }
