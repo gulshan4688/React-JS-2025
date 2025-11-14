@@ -591,3 +591,36 @@ const App2 = () => {
 export default App2
 
 
+# !------------------ Advance Routing -----------------!
+        *********************** BASIC ROUTING ***********************
+
+
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import { Route, Routes } from "react-router-dom";
+import Product from './pages/Product';
+import About from './pages/About';
+import Men from './pages/Men';
+import Women from './pages/Women';
+import NotFound from './pages/NotFound';
+
+
+const App = () => {
+  return (
+    <div className='bg-black min-h-screen  ' >
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} ></Route>
+        <Route path='/product' element={<Product />} ></Route>
+        <Route path='/product/men' element={<Men />} ></Route>
+        <Route path='/product/women' element={<Women />} ></Route>
+        <Route path='/about' element={<About />} ></Route>
+        <Route path='*' element={<NotFound />} ></Route>
+      </Routes>
+      <Footer/>
+    </div>
+  )
+}
+
+export default App
