@@ -672,3 +672,30 @@ const App = () => {
     </div> 
   )
 }
+
+
+
+
+
+# !------------------- Context Api --------------------!
+
+      # there are main three steps in Context api 
+        1. Create the contex 
+        2. provide the context 
+        3. use the context 
+
+1. Create a ThemeContext.jsx page in a folder named context 
+   and wrap the <App/> in main.jsx in like this 
+
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import ThemeContext from './context/ThemeContext.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <ThemeContext>
+    <App />
+  </ThemeContext>
+)
