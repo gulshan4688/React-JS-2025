@@ -293,6 +293,7 @@ const App = () => {
     e.preventDefault();
 #   ---------- you need varible to store title and description both and an array to print the notes below of a type object 
 
+
     let newArr = [...notes];          
     newArr.push({ title, description });
 
@@ -624,3 +625,50 @@ const App = () => {
 }
 
 export default App
+
+
+# and we make link buttons in navbar like this 
+
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const Navbar = () => {
+  return (
+    <div className='flex py-4 px-8 items-center bg-cyan-900 justify-between'>
+      <h2 className='text-xl font-bold'>Sheryians</h2>
+      <div className='flex gap-8 '>
+        <Link className='text-lg font-bold' to="/">Home</Link>
+        <Link className='text-lg font-bold' to="/about">About</Link>
+        <Link className='text-lg font-bold' to="/product">Product</Link>
+        <Link className='text-lg font-bold' to="/courses">Courses</Link>
+      </div>
+    </div>
+  )
+}
+
+export default Navbar
+
+
+        *********************** BASIC to mosed used routing type ROUTING ***********************
+  
+and in this routing we put the nested links in the <Route> Here <Route/> 
+
+const App = () => {
+  return (
+    <div className='bg-black min-h-screen  ' >
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/product' element={<Product />} >
+          <Route path='men' element={<Men />} />       // Nested links in side the page where we want to render them 
+          <Route path='women' element={<Women />} />    // Nested links in side the page where we want to render them 
+          <Route path='kids' element={<Kids/>} />   // Nested links in side the page where we want to render them 
+        </Route>
+        <Route path='/about' element={<About />} />
+        <Route path='*' element={<NotFound />} />
+        <Route path='/courses' element={<Course/>} />
+      </Routes>
+      <Footer />
+    </div> 
+  )
+}
