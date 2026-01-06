@@ -1,5 +1,5 @@
 import React from 'react'
-import { Counter } from './Features/Counter'
+import { Counter } from './Redux/Features/Counter'
 
 const App = () => {
   return (
