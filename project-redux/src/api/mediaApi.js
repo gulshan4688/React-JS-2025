@@ -1,6 +1,10 @@
-import axios from axios
+import axios from 'axios'
+
+const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY
+const PEXEL_KEY = import.meta.env.VITE_PEXEL_KEY
 
 
-function fetchImages(){
-    // created in PG
+
+function fetchPhotos(){
+    axios.get('')
 }
