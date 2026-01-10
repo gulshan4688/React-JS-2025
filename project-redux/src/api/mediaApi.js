@@ -10,7 +10,18 @@ export async function fetchPhotos(query,page =1, per_page = 20) {
         params:{query,page, per_page},
         headers:{Authorization: `Client-ID ${UNSPLASH_KEY}`},
     })
+    console.log(response.data.results);
+    return response.data;
+}
 
-    console.log(response);
-
+export async function fetchVideos(query, per_page = 20) {
+    const response = await axios('https://api.pexels.com/videos/search',{
+        params:{query, per_page},
+        headers:{Authorization:`Client-ID ${PEXEL_KEY}`},
+    })
+    response.data.videos.forEach(element => {
+        console.log(element.image);
+    });
+    // console.log(response.data.videos);
+    return response.data;
 }
