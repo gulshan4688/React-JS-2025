@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
+import { setQuery } from "../Redux/features/seachSlice";
 
 const SearchBar = () => {
 
-    const [text, setText] = useState('Iron Man 💝');
+    const [text, setText] = useState('');
     const disPatch = useDispatch();
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // console.log("form submitted with ", text);
         disPatch(setQuery(text));
         setText('');
     }
     return (
         <div>
-            <form onSubmit={(e) => handleFormSubmit(e)} className="flex gap-5 p-10 bg-blue-950 " >
+            <form onSubmit={(e) => handleFormSubmit(e)} className="flex gap-5 p-10 bg-blue-300 text-shadow-amber-100" >
                 <input
                     value={text}
                     onChange={(text) => {
