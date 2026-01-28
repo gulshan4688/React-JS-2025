@@ -21,6 +21,7 @@ const ResultGrid = () => {
                         title: item.alt_description,
                         thumbnail: item.urls.small,
                         src: item.urls.full,
+                        url: item.links.html,
                     }))
                 } else if (activeTab == 'Videos') {
                     let response = await fetchVideos(query);
@@ -31,6 +32,7 @@ const ResultGrid = () => {
                         title: item.user.name || 'video',
                         thumbnail: item.image,
                         src: item.video_files[0].link || "",
+                        url: item.url,
                     }))
                 }
                 disPatch(setResults(data));
@@ -49,7 +51,7 @@ const ResultGrid = () => {
         <div className="flex flex-wrap justify-center gap-6 overflow-auto px-5" >
             {
                 results?.map((item, id) => {
-                    return <div key={id} > <ResultCard item={item} /> </div>
+                    return <div key={id}> <ResultCard item={item} /> </div>
                 })
             }
         </div>
